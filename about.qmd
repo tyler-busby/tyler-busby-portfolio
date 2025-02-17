@@ -12,15 +12,18 @@ about:
       href: https://github.com/tyler-busby
 ---
 
-Tyler Busby is a Student with a Major in Marine Science, Minor in Statistics, and Minor in Music at
+Tyler Busby is a student with a Major in Marine Science, Minor in Statistics, and Minor in Music at [California State University, Monterey Bay](https://csumb.edu/marinescience).
 
 ## Education
 
-Shippensburg University \| Shippensburg, PA
-B.S. in Applied Mathematics \| 2001 - 2004
+California State University, Monterey Bay \| Seaside, CA
+
+B.S. in Marine Science \| 2022 - present
 
 ## Experience
 
-Wengo Analytics \| Head Data Scientist \| April 2018 - present
+Moss Landing Marine Labs \| Research Volunteer \| Sept 2024 - Dec 2024
 
-GeoScynce \| Chief Analyst \| Sept 2012 - April 2018
+SeaWorld \| Educator \| May 2024 - Aug 2024, Dec 2024 - Jan 2025
+
+Sea Otter Savvy \| Sticker Evaluation Surveyor \| Feb 2023 - May 2023
