@@ -9,8 +9,22 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "Tyler Busby",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "Tyler Busby is a Student with a Major in Marine Science, Minor in Statistics, and Minor in Music at [California State University, Monterey Bay](https://csumb.edu/marinescience/)."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "Tyler Busby",
+    "section": "Education",
+    "text": "Education\nShippensburg University | Shippensburg, PA B.S. in Applied Mathematics | 2001 - 2004"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "Tyler Busby",
+    "section": "Experience",
+    "text": "Experience\nWengo Analytics | Head Data Scientist | April 2018 - present\nGeoScynce | Chief Analyst | Sept 2012 - April 2018"
   }
 ]

@@ -1,9 +1,26 @@
 ---
-title: "About"
+title: "Tyler Busby"
+about:
+  template: jolla
+  image: image.jpg
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/tyler-busby-57b633351/
+    - icon: github
+      text: Github
+      href: https://github.com/tyler-busby
 ---
 
-About this site
+Tyler Busby is a Student with a Major in Marine Science, Minor in Statistics, and Minor in Music at
 
-```{r}
-1 + 1
-```
+## Education
+
+Shippensburg University \| Shippensburg, PA
+B.S. in Applied Mathematics \| 2001 - 2004
+
+## Experience
+
+Wengo Analytics \| Head Data Scientist \| April 2018 - present
+
+GeoScynce \| Chief Analyst \| Sept 2012 - April 2018
