@@ -118,6 +118,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#data-visualization-1" id="toc-data-visualization-1" class="nav-link" data-scroll-target="#data-visualization-1">Data Visualization 1</a></li>
   <li><a href="#data-visualization-2" id="toc-data-visualization-2" class="nav-link" data-scroll-target="#data-visualization-2">Data Visualization 2</a></li>
   <li><a href="#data-visualization-3" id="toc-data-visualization-3" class="nav-link" data-scroll-target="#data-visualization-3">Data Visualization 3</a></li>
+  <li><a href="#citations" id="toc-citations" class="nav-link" data-scroll-target="#citations">Citations</a></li>
   </ul>
 </nav>
     </div>
@@ -162,18 +163,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="data-cleaning" class="level1">
 <h1>Data Cleaning</h1>
-<p>There is also some missing data in the common_name variable coded as blanks, as some species of nudibranchs do not have a common name in iNaturalist.</p>
-<p>Based on my goal, I will not need to filter my data nor join my data with any preexisting datasets.</p>
-<p>For my first visualization, I will have to create a new variable in order to include images in my bar graph.</p>
-<p>There are a few variables I will want to exclude from my dataset including the observation id variables and many of the taxon designation variables that are entirely NAs, such as taxon_tribe_name and taxon_hybrid_name.</p>
-<p>I will not need to pivot my data.</p>
-<p>As stated in the Data Visualization section, I will have to summarize my data into total number of observations for each species in order to create some of my visualizations.</p>
-<p>One other aspect I am going to want to fix has to do with the common_name variable, as I want to refer to most species of nudibranch by their common name; however, a few species of nudibranch do not have a common name. Thus, I want to find a way to set their common name to be the same as their scientific name or create an entirely new name variable that can use their scientific name in place of the common name.</p>
-<p>The code to add an image file on lines 76-77 were modeled using a tutorial from Dean Chereden on YouTube. CSE Citation:<br>
-Dean Chereden. Add IMAGES to Charts in RStudio [video]. Youtube. 2023 Apr 27, 8:16 minutes. [accessed 2025 May 1]. https://www.youtube.com/watch?app=desktop&amp;v=Mt-lVqqZCVw.</p>
+<p>In order to create my first visualization, I needed to first create a new dataset from the original nudibranch dataset. Because a few species of nudibranch do not have a common name, I needed to use the coalesce() function to replace any common names that were marked as NA with the nudibranch’s scientific name. This allows us to separate these nudibranchs into distinct species instead of accidentally lumping them all together. I then summarized the total number of observations for each species of nudibranch, giving us the total observation count for each distinct species. Finally, using a piece of code modeled after a tutorial from Dean Chereden on YouTube, I added photos to each of the ten most common species of nudibranch to be used in the first visualization.</p>
+<p>To create my second visualization, in order to create a dendrogram of all the species of nudibranchs, I needed to create a dataset with each of the individual nodes and their origins. To accomplish this, I created 5 datasets where common name, genus, family, superfamily, and suborder each served as nodes and combined them into one dataset using rbind(). I then used this dataset to form a graph object to be used in my dendrogram.</p>
+<p>For my final visualization, much like my first, I used the the coalesce() function to replace any common names that were marked as NA. I then used a mutate() function to extract the month from the date variable.</p>
 </section>
 <section id="data-visualization-1" class="level1">
 <h1>Data Visualization 1</h1>
+<p>The first visualization is a bar chart of the 10 species with the highest number of observations. The visualization clearly shows readers which species have the highest and lowest number of observations by placing the barsin order of size. Not to mention, drawings of each of the nudibranchs were included in order help the readers connect with the data further by allowing them to see what each of these species look like. As shown in the graph, the most common species of nudibranch in the Monterey Bay is the opalescent nudibranch, followed by the spotted dorid, Hopkin’s rose, Monterey dorid, San Diego dorid, clown dorid, Hilton’s aeolid, noble dorid, Heath’s dorid, and Cockerell’s dorid.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -183,11 +179,11 @@ Dean Chereden. Add IMAGES to Charts in RStudio [video]. Youtube. 2023 Apr 27, 8:
 </div>
 </div>
 </div>
-<p>The code to add an image file on lines 101-102 were modeled using a tutorial from Dean Chereden on YouTube. CSE Citation:<br>
-Dean Chereden. Add IMAGES to Charts in RStudio [video]. Youtube. 2023 Apr 27, 8:16 minutes. [accessed 2025 May 1]. https://www.youtube.com/watch?app=desktop&amp;v=Mt-lVqqZCVw.</p>
+<p>Barplot of nudibranch observations</p>
 </section>
 <section id="data-visualization-2" class="level1">
 <h1>Data Visualization 2</h1>
+<p>The second visualization shows a dendrogram off all of the species of nudibranch found in the Monterey Bay area. It allows readers to observe the biodiversity of nudibranch species, genera, families, superfamilies, and suborders by showing them as nodes or points of divergence. The visualization shows readers each of the 75 species of nudibranch observed in the Monterey Bay area in 2024, along with the 47 unique genera, 31 unique families, 11 unique superfamilies, and 2 unique suborders of nudibranch in Monterey Bay along with how each one relates to each other. This specific dendrogram’s code was modeled off of a tutorial on the R Graph Gallery.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -197,11 +193,11 @@ Dean Chereden. Add IMAGES to Charts in RStudio [video]. Youtube. 2023 Apr 27, 8:
 </div>
 </div>
 </div>
-<p>The code in the above 2 code chunks to create the dendrogram was modeled from a tutorial from the R Graph Gallery. CSE Citation:<br>
-Yan Holtz. c2016-2018. Dendrogram [Internet]. The R Graph Gallery. [updated 2025; cited 2025 May 15]. Available from: https://r-graph-gallery.com/dendrogram.html.</p>
+<p>Dendrogram of nudibranchs in the Monterey Bay</p>
 </section>
 <section id="data-visualization-3" class="level1">
 <h1>Data Visualization 3</h1>
+<p>The final visualization is a ridgeline plot of nudibranch observations over each of the 12 months by species. This helps readers notice the seasonal trends of nudibranch populations, generally reaching their peak around May, June, or July, and reaching a lull from August to April (with some exceptions, of course). Readers may also identify a potential peak around October to December for some species in particular.</p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in geom_density_ridges(trim = TRUE, scale = 5): Ignoring unknown
@@ -218,6 +214,12 @@ parameters: `trim`</code></pre>
 </div>
 </div>
 </div>
+<p>Ridgeline plot of nudibranch populations by month</p>
+</section>
+<section id="citations" class="level1">
+<h1>Citations</h1>
+<p>Dean Chereden. Add IMAGES to Charts in RStudio [video]. Youtube. 2023 Apr 27, 8:16 minutes. [accessed 2025 May 1]. https://www.youtube.com/watch?app=desktop&amp;v=Mt-lVqqZCVw.</p>
+<p>Yan Holtz. c2016-2018. Dendrogram [Internet]. The R Graph Gallery. [updated 2025; cited 2025 May 15]. Available from: <a href="https://r-graph-gallery.com/dendrogram.html." class="uri">https://r-graph-gallery.com/dendrogram.html.</a></p>
 
 
 </section>
