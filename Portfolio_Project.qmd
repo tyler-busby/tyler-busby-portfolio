@@ -164,7 +164,7 @@ monthly_nudibranch <- nudibranch |> #creates new monthly_nudibranch dataset
          month = month(observed_on, label = FALSE)) #summarizes total_obs as the number of each common name observation
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 ggplot(monthly_nudibranch, aes(x = month, y = common_name, fill = common_name)) +
   geom_density_ridges(trim = TRUE, 
                       scale = 5) + 
