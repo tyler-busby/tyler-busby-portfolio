@@ -56,13 +56,13 @@ As stated in the Data Visualization section, I will have to summarize my data in
 
 One other aspect I am going to want to fix has to do with the common_name variable, as I want to refer to most species of nudibranch by their common name; however, a few species of nudibranch do not have a common name. Thus, I want to find a way to set their common name to be the same as their scientific name or create an entirely new name variable that can use their scientific name in place of the common name.
 
-```{r}
+```{r, include=FALSE}
 #| label: "load-data"
 
 nudibranch <- read_csv("data-raw/nudibranch-obs.csv")
 ```
 
-```{r}
+```{r, include=FALSE}
 #| label: "creating-totals-dataset"
 
 tot_nudibranch <- nudibranch |> #creates new tot_nudibranch dataset
@@ -79,7 +79,7 @@ write_csv(tot_nudibranch, file = 'data-clean/tot_nudibranchs.csv') #save new tot
 The code to add an image file on lines 76-77 were modeled using a tutorial from Dean Chereden on YouTube. CSE Citation:\
 Dean Chereden. Add IMAGES to Charts in RStudio \[video\]. Youtube. 2023 Apr 27, 8:16 minutes. \[accessed 2025 May 1\]. https://www.youtube.com/watch?app=desktop&v=Mt-lVqqZCVw.
 
-```{r}
+```{r, echo=FALSE}
 #| label: "first-visualization-rough-draft"
 
 tot_nudibranch |>
@@ -108,7 +108,7 @@ tot_nudibranch |>
 The code to add an image file on lines 101-102 were modeled using a tutorial from Dean Chereden on YouTube. CSE Citation:\
 Dean Chereden. Add IMAGES to Charts in RStudio \[video\]. Youtube. 2023 Apr 27, 8:16 minutes. \[accessed 2025 May 1\]. https://www.youtube.com/watch?app=desktop&v=Mt-lVqqZCVw.
 
-```{r}
+```{r, include=FALSE}
 #| label: "creating-nudi_edges-dataset"
 
 nudi1 <- nudibranch |> #creates nudi1 dataframe using mollusca as the origin and suborder as first group
@@ -140,7 +140,7 @@ nudi5 <- nudibranch |>
 nudi_edges <- rbind(nudi1, nudi2, nudi3, nudi4, nudi5) #combining all 5 datasets into one edge dataset
 ```
 
-```{r}
+```{r, echo=FALSE}
 nudi_dendrogram <- graph_from_data_frame(nudi_edges) #creating a graph object to be used in ggraph
 
 ggraph(nudi_dendrogram, layout = 'dendrogram', circular = FALSE) + #creating dendrogram from nudi_dendrogram
@@ -159,13 +159,13 @@ ggraph(nudi_dendrogram, layout = 'dendrogram', circular = FALSE) + #creating den
 The code in the above 2 code chunks to create the dendrogram was modeled from a tutorial from the R Graph Gallery. CSE Citation:\
 Yan Holtz. c2016-2018. Dendrogram \[Internet\]. The R Graph Gallery. \[updated 2025; cited 2025 May 15\]. Available from: https://r-graph-gallery.com/dendrogram.html.
 
-```{r}
+```{r, include=FALSE}
 monthly_nudibranch <- nudibranch |> #creates new monthly_nudibranch dataset
   mutate(common_name = coalesce(common_name, scientific_name), #replaces nas in common name variable with scientific name
          month = month(observed_on, label = FALSE)) #summarizes total_obs as the number of each common name observation
 ```
 
-```{r}
+```{r, echo=FALSE}
 ggplot(monthly_nudibranch, aes(x = month, y = common_name, fill = common_name)) +
   geom_density_ridges(trim = TRUE, 
                       scale = 5) + 
