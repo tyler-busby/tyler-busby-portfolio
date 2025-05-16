@@ -6,11 +6,9 @@ website:
   title: "tyler-busby-portfolio"
   navbar:
     left:
-      - href: index.qmd
-        text: "Home"
       - href: about.qmd
         text: "About Me"
-      - href: project-portfolio.qmd
+      - href: Portfolio_Project.qmd
         text: "Example Project"
 
 format:
