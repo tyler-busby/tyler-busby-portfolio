@@ -86,7 +86,8 @@ tot_nudibranch |>
         title = element_text(family = "serif"),
         axis.text.x = element_text(family = "serif"),
         axis.text.y = element_text(family = "serif"), #change font for all texts
-        panel.background = element_rect(fill = "#D9E3F1"),
+        panel.background = element_rect(fill = "#D9E3F1",
+                                        color = "#D9E3F1"),
         plot.background = element_rect(fill = "#D9E3F1",
                                        color = "#D9E3F1")) + #change bg color to match website
   scale_fill_distiller(direction = 1) #change fill color to brewer blues
@@ -144,7 +145,8 @@ ggraph(nudi_dendrogram, layout = 'dendrogram', circular = FALSE) + #creating den
   geom_node_point(aes(filter=leaf) , alpha=0.6) + #creates node point at each end
   ylim(-2.15, NA) + #expands y-axis vertically
   theme_void() + #sets theme to void
-  theme(panel.background = element_rect(fill = "#D9E3F1"),
+  theme(panel.background = element_rect(fill = "#D9E3F1",
+                                        color = "#D9E3F1"),
         plot.background = element_rect(fill = "#D9E3F1",
                                        color = "#D9E3F1")) + #change bg color to match website)
   labs(alt = "Dendrogram showing each of the 75 species of nudibranch reported in Monterey Bay in 2024. Each species has a node which branch from a central origin, with branches appearing at the genus, family, subfamily, and suborder level. The species are split into 47 unique genera, 31 unique families, 11 unique superfamilies, and 2 unique suborders.") #add alt text)
@@ -176,9 +178,10 @@ ggplot(monthly_nudibranch, aes(x = month, y = common_name, fill = common_name)) 
         title = element_text(size = 10, 
                              family = "serif"),  #change font and size for all texts
         legend.position = "none", #remove legend
-        panel.background = element_rect(fill = "#D9E3F1"),
+        panel.background = element_rect(fill = "#D9E3F1",
+                                        color = "#D9E3F1"),
         plot.background = element_rect(fill = "#D9E3F1",
-                                       color =)) + #change bg color to match website)
+                                       color = "#D9E3F1")) + #change bg color to match website)
   scale_x_continuous(expand = c(0,0),
                      limits = c(1, 12),
                      breaks = seq_along(month.name), 
